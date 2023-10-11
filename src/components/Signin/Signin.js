@@ -1,4 +1,5 @@
 import React from "react";
+import 'tachyons'
 
 
 class Signin extends React.Component  {
@@ -20,7 +21,7 @@ class Signin extends React.Component  {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signin', {
+    fetch('http://localhost:4000/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -29,7 +30,8 @@ class Signin extends React.Component  {
       })
     }).then(response => response.json())
     .then(data => {
-      if(data === 'Success'){
+      if(data.id){
+        this.props.loadUser(data)
         this.props.onRouteChange('home')
       }
     })
