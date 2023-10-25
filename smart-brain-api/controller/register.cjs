@@ -4,6 +4,7 @@ const handelRegister = (req, res, db, bcrypt) => {
   if(!email || !name || !password ){
     return res.status(400).json('incorrect form submission')
   }
+  console.log('data')
   var hash = bcrypt.hashSync(password);
   db.transaction((trx) => {
     trx
