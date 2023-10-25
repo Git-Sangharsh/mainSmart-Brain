@@ -169,6 +169,7 @@ const Clarifai = require('clarifai');
 
   render(){
     const {isSignedIn, imageUrl, route, box} = this.state
+    console.log('data')
   return (
     <div className="App">
       <Particles className="particles"
